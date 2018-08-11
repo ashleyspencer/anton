@@ -5,8 +5,10 @@
     "gulp-coffee": "latest",
     "gulp-concat": "latest",
     "gulp-connect": "latest",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
-    "gulp-uglify": "latest",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
     "gulp-util": "latest"
   }
 }

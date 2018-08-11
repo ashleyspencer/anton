@@ -1,0 +1,219 @@
+/* Mixins */
+/*
+ * Transition
+ @include transition(all .2s ease);
+ */
+/*
+   * Hardware accelerate
+   @include hwaccelerate();
+   */
+/*
+   * Box sizing
+   @include box-sizing(border-box);
+   */
+/*
+   * Generic transform
+   @include transform(translate(1px, 1px));
+   */
+/*
+   * Generic Translate
+   @include translate(1px, 1px);
+   */
+/*
+   * Generic transform
+   @include transform-origin(top left);
+   */
+/*
+   * Opacity
+   @include opacity(0.8);
+   */
+/*
+   * Scale
+   @include scale(0.8);
+   */
+/*
+   * Rotate
+   @include rotate(180);
+   */
+/*
+   * text-shadow
+   @include text-shadow(1px, 1px, 1px, #000000);
+   */
+/*
+   * transform-origin
+   @include transform-origin(center center);
+   */
+/*
+   * border-radius
+   @include border-radius(0.5em);
+   */
+/*
+   * vertical-align
+   @include vertical-align();
+   */
+/*
+   * Fill element with background image
+   @include bgfill();
+   */
+/*
+   * Box Shadow
+   @include box-shadow(1px, 1px, 1px, #e1e1e1, false);
+   */
+/*
+  * Vertical Align
+  * @include vertical-align();
+  */
+/*
+  * Fill parent
+  * @include fill-parent();
+  */
+/*
+   * GSAP-compatible hide
+   @include hide();
+   */
+/*
+   * Clearfix
+  .container-with-floated-children {
+    @extend %clearfix;
+  }
+   */
+@font-face {
+  font-family: 'glacial_indifferencebold';
+  src: url("../fonts/glacialindifference-bold-webfont.woff2") format("woff2"), url("../fonts/glacialindifference-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+body {
+  font-family: glacial_indifferencebold;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-size: .9rem;
+  background: #5F5F5F; }
+
+/* CAROUSEL */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+#carouselExampleIndicators .carousel-inner {
+  height: 100vh; }
+
+#carouselExampleIndicators .carousel-indicators-slider-wrapper {
+  position: absolute;
+  left: 0;
+  z-index: 15;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-left: 0;
+  list-style: none;
+  height: 3px;
+  width: 75%;
+  left: 8%;
+  top: 80%;
+  pointer-events: none; }
+  #carouselExampleIndicators .carousel-indicators-slider-wrapper .carousel-indicators-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: .3; }
+  #carouselExampleIndicators .carousel-indicators-slider-wrapper .carousel-indicators-slider {
+    position: absolute;
+    width: 16%;
+    height: 100%;
+    background-color: #FFFF98;
+    left: 0%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease; }
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition-duration: .6s;
+  transition-property: opacity;
+  position: absolute;
+  top: 0; }
+  .carousel-fade .carousel-item img {
+    width: 100vw; }
+
+.carousel {
+  height: 100vh;
+  overflow: hidden; }
+
+.test {
+  height: 100vh; }
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+  opacity: 1; }
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+  opacity: 0; }
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+  transform: translateX(0);
+  transform: translate3d(0, 0, 0); }
+
+.carousel-indicators {
+  width: 75%;
+  height: 30px;
+  margin: 0;
+  left: 8%;
+  top: 80%;
+  text-align: left; }
+  .carousel-indicators li {
+    background: none;
+    width: 16.6%;
+    height: 100%;
+    text-indent: 0;
+    color: white;
+    font-size: .9rem;
+    margin: 0;
+    padding-top: 3px;
+    cursor: pointer;
+    border: none; }
+  .carousel-indicators .active {
+    background: none; }
+
+.carousel-control-prev {
+  visibility: hidden;
+  opacity: 0; }
+
+.carousel-control-next {
+  visibility: hidden;
+  opacity: 0; }
+
+/* NAV BAR */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 1.5rem 3rem 1.5rem 1.5rem; }
+  .navbar .navbar-brand {
+    background-image: url("../img/logo@2x.png");
+    background-position: 0 0;
+    background-size: cover;
+    width: 14%;
+    padding-bottom: 5%; }
+  .navbar .nav-item {
+    color: #fff; }
+  .navbar .navbar-collapse .form-inline {
+    display: none; }
+  .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
+    color: #fff; }
+
+.bg-light {
+  background: none !important; }

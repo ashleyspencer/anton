@@ -1,0 +1,183 @@
+@import "mixins";
+
+$brand-yellow: #FFFF98;
+$brand-grey: #5F5F5F;
+
+@font-face {
+    font-family: 'glacial_indifferencebold';
+    src: url('../fonts/glacialindifference-bold-webfont.woff2') format('woff2'),
+         url('../fonts/glacialindifference-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: glacial_indifferencebold;
+	-webkit-font-smoothing: subpixel-antialiased;
+	font-size: .9rem;
+	background: $brand-grey;
+}
+  
+  /* CAROUSEL */
+  /* /////////////////////// */
+  /* /////////////////////// */
+  /* /////////////////////// */
+#carouselExampleIndicators {
+	.carousel-inner {
+		height: 100vh;
+	}
+
+	.carousel-indicators-slider-wrapper {
+		position: absolute;
+		left: 0;
+		z-index: 15;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		padding-left: 0;
+		list-style: none;
+		height: 3px;
+		width: 75%;
+		left: 8%;
+		top: 80%;
+		pointer-events: none;
+	
+		.carousel-indicators-bg {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: #fff;
+			opacity: .3;
+		}
+	
+		.carousel-indicators-slider {
+			position:absolute;
+			width: 16%;
+			height: 100%;
+			background-color: $brand-yellow;
+			left: 0%;
+			@include transition(all .2s ease);
+		}
+	}
+}
+
+.carousel-fade .carousel-item {
+	opacity: 0;
+	transition-duration: .6s;
+	transition-property: opacity;
+	position: absolute;
+	top: 0;
+
+	img {
+		width: 100vw;
+	}
+}
+
+  .carousel {
+	height:100vh;
+	overflow: hidden;
+  }
+  
+.test {
+	height:100vh;
+}
+
+.carousel-fade  .carousel-item.active,
+.carousel-fade  .carousel-item-next.carousel-item-left,
+.carousel-fade  .carousel-item-prev.carousel-item-right {
+	opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade  .active.carousel-item-right {
+	opacity: 0;
+}
+
+.carousel-fade  .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade  .active.carousel-item-prev {
+	transform: translateX(0);
+	transform: translate3d(0, 0, 0);
+}
+
+.carousel-indicators {
+	width: 75%;
+	height: 30px;
+	margin: 0;
+	left: 8%;
+	top: 80%;
+	text-align: left;
+
+	li {
+		background: none;
+		width: 16.6%;
+		height: 100%;
+		text-indent: 0;
+		color: white;
+		font-size: .9rem;
+		margin: 0;
+		padding-top: 3px;
+		cursor: pointer;
+		border: none;
+	}
+
+	.active {
+		background: none;
+	}
+}
+
+.carousel-control-prev {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.carousel-control-next {
+	visibility: hidden;
+	opacity: 0;
+}
+
+  /* NAV BAR */
+  /* /////////////////////// */
+  /* /////////////////////// */
+  /* /////////////////////// */
+.navbar {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	padding: 1.5rem 3rem 1.5rem 1.5rem;
+
+	.navbar-brand {
+		background-image: url("../img/logo@2x.png");
+		background-position: 0 0;
+		background-size: cover;
+		width: 14%;
+		padding-bottom: 5%;
+	}
+
+	.nav-item {
+		color: #fff;
+	}
+
+	.navbar-collapse {
+		.form-inline {
+			display: none;
+		}
+
+		.navbar-nav {
+			.nav-item {
+				.nav-link {
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+.bg-light {
+	background: none !important;
+}
