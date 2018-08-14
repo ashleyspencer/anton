@@ -11,26 +11,150 @@ $brand-grey: #5F5F5F;
     font-style: normal;
 }
 
+/* ANIMATIONS */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+@keyframes megaNavIn {
+	0% { top : -100%; }
+	100% { top : 0%; }
+}
+  
+@keyframes megaNavOut {
+	0% { top : 0%; }
+	100% { top : -100%; }
+}
+
+@keyframes anchorIn {
+	0% { top : 60px; }
+	100% { top : 0px; }
+}
+  
+@keyframes anchorOut {
+	0% { top : 0px; }
+	100% { top : 60px; }
+}
+
+/* MEDIA QUERIES */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+@media only screen and (max-width: 830px) {
+	#carouselExampleIndicators {
+		.carousel-inner {	
+			.carousel-item {	
+				.carousel-caption {
+					h1 {
+						font-size: 2.3rem;
+					}
+
+					h2 {
+						font-size: 1.1rem;
+					}
+				}
+			}
+		}
+	}
+
+	.carousel-indicators {
+		li {
+			display: none;
+		}
+	}
+}
+
+@media only screen and (max-width: 530px) {
+	#carouselExampleIndicators {
+		.carousel-inner {	
+			.carousel-item {	
+				.carousel-caption {
+					bottom: 150px;
+					h1 {
+						font-size: 1.9rem;
+					}
+
+					h2 {
+						display: none;
+						font-size: 1.7rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 321px) {
+	body {
+		#carouselExampleIndicators {
+			.carousel-inner {	
+				.carousel-item {	
+					.carousel-caption {
+						bottom: 110px;
+						
+						h1 {
+							font-size: 1.6rem;
+						}
+					}
+				}
+			}
+		}
+	
+		.navbar {
+			padding: 1rem 1rem 1rem 1rem;
+
+			.navbar-brand {
+				width: 134px;
+				height: 53px;
+			}
+		}
+	}	
+}
+
 body {
 	font-family: glacial_indifferencebold;
 	-webkit-font-smoothing: subpixel-antialiased;
 	font-size: .9rem;
 	background: $brand-grey;
 }
-  
-  /* CAROUSEL */
-  /* /////////////////////// */
-  /* /////////////////////// */
-  /* /////////////////////// */
+/* MEDIA QUERIES END */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+/* CAROUSEL */
 #carouselExampleIndicators {
 	.carousel-inner {
 		height: 100vh;
+
+		.carousel-item {
+			height: 100vh;
+
+			img {
+				height: 100vh;
+			}
+
+			.carousel-caption {
+				text-align: left;
+				left: 12%;
+				bottom: 160px;
+				width: 65%;
+
+				h1 {
+					font-size: 2.5rem;
+					margin-bottom: 20px;
+				}
+
+				h2 {
+					font-size: 1.2rem;
+					line-height: 2rem;
+				}
+			}
+		}
 	}
 
 	.carousel-indicators-slider-wrapper {
 		position: absolute;
 		left: 0;
-		z-index: 15;
+		z-index: 1;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -41,7 +165,7 @@ body {
 		list-style: none;
 		height: 3px;
 		width: 75%;
-		left: 8%;
+		left: 12%;
 		top: 80%;
 		pointer-events: none;
 	
@@ -55,7 +179,7 @@ body {
 	
 		.carousel-indicators-slider {
 			position:absolute;
-			width: 16%;
+			width: 16.9%;
 			height: 100%;
 			background-color: $brand-yellow;
 			left: 0%;
@@ -70,16 +194,19 @@ body {
 	transition-property: opacity;
 	position: absolute;
 	top: 0;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 
 	img {
 		width: 100vw;
 	}
 }
 
-  .carousel {
+.carousel {
 	height:100vh;
 	overflow: hidden;
-  }
+}
   
 .test {
 	height:100vh;
@@ -109,9 +236,10 @@ body {
 	width: 75%;
 	height: 30px;
 	margin: 0;
-	left: 8%;
+	left: 12%;
 	top: 80%;
 	text-align: left;
+	z-index: 1;
 
 	li {
 		background: none;
@@ -140,23 +268,140 @@ body {
 	visibility: hidden;
 	opacity: 0;
 }
+/* MEGA NAV */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+.mega-nav-container {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0%;
+	z-index: 2;
+	pointer-events: none;	
 
-  /* NAV BAR */
-  /* /////////////////////// */
-  /* /////////////////////// */
-  /* /////////////////////// */
+	&.animIn #mega-nav-wrap {
+		@include animation(0s, .5s, megaNavIn);
+	}
+
+	&.animOut #mega-nav-wrap {
+		@include animation(0s, .5s, megaNavOut);
+	}
+
+	#mega-nav-wrap {
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		top: -100%;
+		padding: 180px 0 0 0;
+	
+		@media only screen and (max-width: 991px) {
+			display: none;
+		}
+	
+		.mega-nav-bg {
+			background-color: $brand-grey;
+			opacity: .9;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+		}
+	
+		.container {
+			.row {
+				.col {
+					.filter-list {
+						margin: 0 0 40px 0;
+						li {
+							a {
+								font-size: .9rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	
+		ul {
+			li {
+				list-style-type: none;
+				margin: 0 0 10px 0;
+	
+				.anchor-mask {
+					overflow: hidden;
+
+					&.anchor-in .mega-nav-a {
+						@include animation(0s, .5s, anchorIn);
+					}
+
+					&.anchor-out .mega-nav-a {
+						@include animation(0s, .5s, anchorOut);
+					}
+				
+					.mega-nav-a {
+						display: inline-block;
+						text-decoration: none;
+						color: #fff;
+						font-size: 1.6rem;
+						position: relative;
+						top: 60px;
+	
+						&:hover {
+							color: $brand-yellow;
+						}
+					}
+	
+					.a-disabled {
+						&:hover {
+							color: #fff;
+						}
+					}
+				}
+	
+				a {
+					text-decoration: none;
+					color: #fff;
+					font-size: 1.6rem;
+	
+					&:hover {
+						color: $brand-yellow;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+/* NAV BAR */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
 .navbar {
 	position: absolute;
 	top: 0;
 	width: 100%;
 	padding: 1.5rem 3rem 1.5rem 1.5rem;
+	z-index: 3;
 
 	.navbar-brand {
 		background-image: url("../img/logo@2x.png");
 		background-position: 0 0;
 		background-size: cover;
-		width: 14%;
-		padding-bottom: 5%;
+		width: 180px;
+		height: 70px;
+	}
+
+	.navbar-toggler {
+		border: none;
+		background: none;
+		
+		.navbar-toggler-icon {
+			background-image: url("../img/burger.svg");
+		}
 	}
 
 	.nav-item {
@@ -172,7 +417,19 @@ body {
 			.nav-item {
 				.nav-link {
 					color: #fff;
+
+					&:hover {
+						color: $brand-yellow;
+					}
+
+					&.active {
+						color: $brand-yellow;
+					}
 				}
+			}
+
+			.nav-item-spacer {
+				width: 15vw;
 			}
 		}
 	}

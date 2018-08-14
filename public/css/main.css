@@ -4,6 +4,9 @@
  @include transition(all .2s ease);
  */
 /*
+@include animation(10s, 5s, changecolour)
+*/
+/*
    * Hardware accelerate
    @include hwaccelerate();
    */
@@ -83,23 +86,99 @@
   font-weight: normal;
   font-style: normal; }
 
+/* ANIMATIONS */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+@keyframes megaNavIn {
+  0% {
+    top: -100%; }
+  100% {
+    top: 0%; } }
+
+@keyframes megaNavOut {
+  0% {
+    top: 0%; }
+  100% {
+    top: -100%; } }
+
+@keyframes anchorIn {
+  0% {
+    top: 60px; }
+  100% {
+    top: 0px; } }
+
+@keyframes anchorOut {
+  0% {
+    top: 0px; }
+  100% {
+    top: 60px; } }
+
+/* MEDIA QUERIES */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+@media only screen and (max-width: 830px) {
+  #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h1 {
+    font-size: 2.3rem; }
+  #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h2 {
+    font-size: 1.1rem; }
+  .carousel-indicators li {
+    display: none; } }
+
+@media only screen and (max-width: 530px) {
+  #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption {
+    bottom: 150px; }
+    #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h1 {
+      font-size: 1.9rem; }
+    #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h2 {
+      display: none;
+      font-size: 1.7rem; } }
+
+@media only screen and (max-width: 321px) {
+  body #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption {
+    bottom: 110px; }
+    body #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h1 {
+      font-size: 1.6rem; }
+  body .navbar {
+    padding: 1rem 1rem 1rem 1rem; }
+    body .navbar .navbar-brand {
+      width: 134px;
+      height: 53px; } }
+
 body {
   font-family: glacial_indifferencebold;
   -webkit-font-smoothing: subpixel-antialiased;
   font-size: .9rem;
   background: #5F5F5F; }
 
+/* MEDIA QUERIES END */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
 /* CAROUSEL */
-/* /////////////////////// */
-/* /////////////////////// */
-/* /////////////////////// */
 #carouselExampleIndicators .carousel-inner {
   height: 100vh; }
+  #carouselExampleIndicators .carousel-inner .carousel-item {
+    height: 100vh; }
+    #carouselExampleIndicators .carousel-inner .carousel-item img {
+      height: 100vh; }
+    #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption {
+      text-align: left;
+      left: 12%;
+      bottom: 160px;
+      width: 65%; }
+      #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px; }
+      #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h2 {
+        font-size: 1.2rem;
+        line-height: 2rem; }
 
 #carouselExampleIndicators .carousel-indicators-slider-wrapper {
   position: absolute;
   left: 0;
-  z-index: 15;
+  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -110,7 +189,7 @@ body {
   list-style: none;
   height: 3px;
   width: 75%;
-  left: 8%;
+  left: 12%;
   top: 80%;
   pointer-events: none; }
   #carouselExampleIndicators .carousel-indicators-slider-wrapper .carousel-indicators-bg {
@@ -121,7 +200,7 @@ body {
     opacity: .3; }
   #carouselExampleIndicators .carousel-indicators-slider-wrapper .carousel-indicators-slider {
     position: absolute;
-    width: 16%;
+    width: 16.9%;
     height: 100%;
     background-color: #FFFF98;
     left: 0%;
@@ -136,7 +215,10 @@ body {
   transition-duration: .6s;
   transition-property: opacity;
   position: absolute;
-  top: 0; }
+  top: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
   .carousel-fade .carousel-item img {
     width: 100vw; }
 
@@ -168,9 +250,10 @@ body {
   width: 75%;
   height: 30px;
   margin: 0;
-  left: 8%;
+  left: 12%;
   top: 80%;
-  text-align: left; }
+  text-align: left;
+  z-index: 1; }
   .carousel-indicators li {
     background: none;
     width: 16.6%;
@@ -193,6 +276,144 @@ body {
   visibility: hidden;
   opacity: 0; }
 
+/* MEGA NAV */
+/* /////////////////////// */
+/* /////////////////////// */
+/* /////////////////////// */
+.mega-nav-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0%;
+  z-index: 2;
+  pointer-events: none; }
+  .mega-nav-container.animIn #mega-nav-wrap {
+    -webkit-animation-delay: 0s;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-name: megaNavIn;
+    -webkit-animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */
+    -moz-animation-delay: 0s;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-name: megaNavIn;
+    -moz-animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */
+    -o-animation-delay: 0s;
+    -o-animation-duration: 0.5s;
+    -o-animation-name: megaNavIn;
+    -o-animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */
+    animation-delay: 0s;
+    animation-duration: 0.5s;
+    animation-name: megaNavIn;
+    animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */ }
+  .mega-nav-container.animOut #mega-nav-wrap {
+    -webkit-animation-delay: 0s;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-name: megaNavOut;
+    -webkit-animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */
+    -moz-animation-delay: 0s;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-name: megaNavOut;
+    -moz-animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */
+    -o-animation-delay: 0s;
+    -o-animation-duration: 0.5s;
+    -o-animation-name: megaNavOut;
+    -o-animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */
+    animation-delay: 0s;
+    animation-duration: 0.5s;
+    animation-name: megaNavOut;
+    animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */ }
+  .mega-nav-container #mega-nav-wrap {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: -100%;
+    padding: 180px 0 0 0; }
+    @media only screen and (max-width: 991px) {
+      .mega-nav-container #mega-nav-wrap {
+        display: none; } }
+    .mega-nav-container #mega-nav-wrap .mega-nav-bg {
+      background-color: #5F5F5F;
+      opacity: .9;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0; }
+    .mega-nav-container #mega-nav-wrap .container .row .col .filter-list {
+      margin: 0 0 40px 0; }
+      .mega-nav-container #mega-nav-wrap .container .row .col .filter-list li a {
+        font-size: .9rem; }
+    .mega-nav-container #mega-nav-wrap ul li {
+      list-style-type: none;
+      margin: 0 0 10px 0; }
+      .mega-nav-container #mega-nav-wrap ul li .anchor-mask {
+        overflow: hidden; }
+        .mega-nav-container #mega-nav-wrap ul li .anchor-mask.anchor-in .mega-nav-a {
+          -webkit-animation-delay: 0s;
+          -webkit-animation-duration: 0.5s;
+          -webkit-animation-name: anchorIn;
+          -webkit-animation-fill-mode: forwards;
+          /* this prevents the animation from restarting! */
+          -moz-animation-delay: 0s;
+          -moz-animation-duration: 0.5s;
+          -moz-animation-name: anchorIn;
+          -moz-animation-fill-mode: forwards;
+          /* this prevents the animation from restarting! */
+          -o-animation-delay: 0s;
+          -o-animation-duration: 0.5s;
+          -o-animation-name: anchorIn;
+          -o-animation-fill-mode: forwards;
+          /* this prevents the animation from restarting! */
+          animation-delay: 0s;
+          animation-duration: 0.5s;
+          animation-name: anchorIn;
+          animation-fill-mode: forwards;
+          /* this prevents the animation from restarting! */ }
+        .mega-nav-container #mega-nav-wrap ul li .anchor-mask.anchor-out .mega-nav-a {
+          -webkit-animation-delay: 0s;
+          -webkit-animation-duration: 0.5s;
+          -webkit-animation-name: anchorOut;
+          -webkit-animation-fill-mode: forwards;
+          /* this prevents the animation from restarting! */
+          -moz-animation-delay: 0s;
+          -moz-animation-duration: 0.5s;
+          -moz-animation-name: anchorOut;
+          -moz-animation-fill-mode: forwards;
+          /* this prevents the animation from restarting! */
+          -o-animation-delay: 0s;
+          -o-animation-duration: 0.5s;
+          -o-animation-name: anchorOut;
+          -o-animation-fill-mode: forwards;
+          /* this prevents the animation from restarting! */
+          animation-delay: 0s;
+          animation-duration: 0.5s;
+          animation-name: anchorOut;
+          animation-fill-mode: forwards;
+          /* this prevents the animation from restarting! */ }
+        .mega-nav-container #mega-nav-wrap ul li .anchor-mask .mega-nav-a {
+          display: inline-block;
+          text-decoration: none;
+          color: #fff;
+          font-size: 1.6rem;
+          position: relative;
+          top: 60px; }
+          .mega-nav-container #mega-nav-wrap ul li .anchor-mask .mega-nav-a:hover {
+            color: #FFFF98; }
+        .mega-nav-container #mega-nav-wrap ul li .anchor-mask .a-disabled:hover {
+          color: #fff; }
+      .mega-nav-container #mega-nav-wrap ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.6rem; }
+        .mega-nav-container #mega-nav-wrap ul li a:hover {
+          color: #FFFF98; }
+
 /* NAV BAR */
 /* /////////////////////// */
 /* /////////////////////// */
@@ -201,19 +422,31 @@ body {
   position: absolute;
   top: 0;
   width: 100%;
-  padding: 1.5rem 3rem 1.5rem 1.5rem; }
+  padding: 1.5rem 3rem 1.5rem 1.5rem;
+  z-index: 3; }
   .navbar .navbar-brand {
     background-image: url("../img/logo@2x.png");
     background-position: 0 0;
     background-size: cover;
-    width: 14%;
-    padding-bottom: 5%; }
+    width: 180px;
+    height: 70px; }
+  .navbar .navbar-toggler {
+    border: none;
+    background: none; }
+    .navbar .navbar-toggler .navbar-toggler-icon {
+      background-image: url("../img/burger.svg"); }
   .navbar .nav-item {
     color: #fff; }
   .navbar .navbar-collapse .form-inline {
     display: none; }
   .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
     color: #fff; }
+    .navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
+      color: #FFFF98; }
+    .navbar .navbar-collapse .navbar-nav .nav-item .nav-link.active {
+      color: #FFFF98; }
+  .navbar .navbar-collapse .navbar-nav .nav-item-spacer {
+    width: 15vw; }
 
 .bg-light {
   background: none !important; }

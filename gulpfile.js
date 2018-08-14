@@ -5,6 +5,7 @@ var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
+var prettyError = require('gulp-prettyerror');
 
 
 gulp.task('serve', function() {
@@ -29,7 +30,8 @@ gulp.task('sass', function () {
   });
 
 gulp.task('js', function () {
-	return gulp.src('./public/js/app.js')
+    return gulp.src('./public/js/app.js')
+        .pipe(prettyError())
 		.pipe(sourcemaps.init())
 		.pipe(rename('app.min.js'))
 		.pipe(uglify())
