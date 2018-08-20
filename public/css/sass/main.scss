@@ -35,91 +35,18 @@ $brand-grey: #5F5F5F;
 	100% { top : 60px; }
 }
 
-/* MEDIA QUERIES */
+
+/* START */
 /* /////////////////////// */
 /* /////////////////////// */
 /* /////////////////////// */
-@media only screen and (max-width: 830px) {
-	#carouselExampleIndicators {
-		.carousel-inner {	
-			.carousel-item {	
-				.carousel-caption {
-					h1 {
-						font-size: 2.3rem;
-					}
-
-					h2 {
-						font-size: 1.1rem;
-					}
-				}
-			}
-		}
-	}
-
-	.carousel-indicators {
-		li {
-			display: none;
-		}
-	}
-}
-
-@media only screen and (max-width: 530px) {
-	#carouselExampleIndicators {
-		.carousel-inner {	
-			.carousel-item {	
-				.carousel-caption {
-					bottom: 150px;
-					h1 {
-						font-size: 1.9rem;
-					}
-
-					h2 {
-						display: none;
-						font-size: 1.7rem;
-					}
-				}
-			}
-		}
-	}
-}
-
-@media only screen and (max-width: 321px) {
-	body {
-		#carouselExampleIndicators {
-			.carousel-inner {	
-				.carousel-item {	
-					.carousel-caption {
-						bottom: 110px;
-						
-						h1 {
-							font-size: 1.6rem;
-						}
-					}
-				}
-			}
-		}
-	
-		.navbar {
-			padding: 1rem 1rem 1rem 1rem;
-
-			.navbar-brand {
-				width: 134px;
-				height: 53px;
-			}
-		}
-	}	
-}
-
 body {
 	font-family: glacial_indifferencebold;
 	-webkit-font-smoothing: subpixel-antialiased;
 	font-size: .9rem;
 	background: $brand-grey;
 }
-/* MEDIA QUERIES END */
-/* /////////////////////// */
-/* /////////////////////// */
-/* /////////////////////// */
+
 /* CAROUSEL */
 #carouselExampleIndicators {
 	.carousel-inner {
@@ -135,17 +62,45 @@ body {
 			.carousel-caption {
 				text-align: left;
 				left: 12%;
-				bottom: 160px;
+				bottom: 220px;
 				width: 65%;
+
+				@media only screen and (max-width: 415px) {
+					bottom: 140px;
+				}
+
+				@media only screen and (max-width: 321px) {
+					bottom: 110px;
+				}
 
 				h1 {
 					font-size: 2.5rem;
 					margin-bottom: 20px;
+
+					@media only screen and (max-width: 830px) {
+						font-size: 2.2rem;
+					}
+
+					@media only screen and (max-width: 530px) {
+						font-size: 1.9rem;
+					}
+
+					@media only screen and (max-width: 321px) {
+						font-size: 1.6rem;
+					}
 				}
 
 				h2 {
 					font-size: 1.2rem;
 					line-height: 2rem;
+
+					@media only screen and (max-width: 830px) {
+						font-size: 1.1rem;
+					}
+
+					@media only screen and (max-width: 530px) {
+						display: none;
+					}
 				}
 			}
 		}
@@ -241,6 +196,10 @@ body {
 	text-align: left;
 	z-index: 1;
 
+	@media only screen and (max-width: 415px) {
+		top: 82%;
+	}
+
 	li {
 		background: none;
 		width: 16.6%;
@@ -252,6 +211,19 @@ body {
 		padding-top: 3px;
 		cursor: pointer;
 		border: none;
+		@include transition(all .2s linear);
+
+		@media only screen and (max-width: 830px) {
+			opacity: 0;
+			width: 100%;
+
+			position: absolute;
+			left: 0;
+
+			&.active {
+				opacity: 1;
+			}
+		}
 	}
 
 	.active {
@@ -350,6 +322,10 @@ body {
 						&:hover {
 							color: $brand-yellow;
 						}
+
+						&.active {
+							color: $brand-yellow;
+						}
 					}
 	
 					.a-disabled {
@@ -387,12 +363,60 @@ body {
 	padding: 1.5rem 3rem 1.5rem 1.5rem;
 	z-index: 3;
 
+	@media only screen and (max-width: 991px) {
+		
+	}
+	
+	@media only screen and (max-width: 321px) {
+		padding: 1rem 1rem 1rem 1rem;
+	}
+
+	.navbar-toggler {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+	}
+
+	.show {
+		left: 0% !important;
+	}
+
+	.navbar-collapse {
+		@media only screen and (max-width: 991px) {
+			background-color: $brand-grey;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			padding: 7.5rem 0 0 2rem;
+			left: 100%;
+			opacity: 1;
+			display: block;
+			@include transition(all .5s ease);
+		}
+
+		@media only screen and (max-width: 321px) {
+			
+		}
+	}
+
 	.navbar-brand {
 		background-image: url("../img/logo@2x.png");
 		background-position: 0 0;
 		background-size: cover;
 		width: 180px;
 		height: 70px;
+
+		@media only screen and (max-width: 991px) {
+			position: relative;
+			z-index:1;
+		}
+
+		@media only screen and (max-width: 321px) {
+			width: 134px;
+			height: 53px;
+		}
 	}
 
 	.navbar-toggler {
@@ -414,7 +438,19 @@ body {
 		}
 
 		.navbar-nav {
+			@media only screen and (max-width: 321px) {
+			
+			}
+
+			@media only screen and (max-width: 415px) {
+				padding: 0 0 0 0.5rem;
+			}
+
 			.nav-item {
+				@media only screen and (max-width: 415px) {
+					padding: 2px;
+				}
+
 				.nav-link {
 					color: #fff;
 

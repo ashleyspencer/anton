@@ -114,48 +114,16 @@
   100% {
     top: 60px; } }
 
-/* MEDIA QUERIES */
+/* START */
 /* /////////////////////// */
 /* /////////////////////// */
 /* /////////////////////// */
-@media only screen and (max-width: 830px) {
-  #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h1 {
-    font-size: 2.3rem; }
-  #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h2 {
-    font-size: 1.1rem; }
-  .carousel-indicators li {
-    display: none; } }
-
-@media only screen and (max-width: 530px) {
-  #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption {
-    bottom: 150px; }
-    #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h1 {
-      font-size: 1.9rem; }
-    #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h2 {
-      display: none;
-      font-size: 1.7rem; } }
-
-@media only screen and (max-width: 321px) {
-  body #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption {
-    bottom: 110px; }
-    body #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h1 {
-      font-size: 1.6rem; }
-  body .navbar {
-    padding: 1rem 1rem 1rem 1rem; }
-    body .navbar .navbar-brand {
-      width: 134px;
-      height: 53px; } }
-
 body {
   font-family: glacial_indifferencebold;
   -webkit-font-smoothing: subpixel-antialiased;
   font-size: .9rem;
   background: #5F5F5F; }
 
-/* MEDIA QUERIES END */
-/* /////////////////////// */
-/* /////////////////////// */
-/* /////////////////////// */
 /* CAROUSEL */
 #carouselExampleIndicators .carousel-inner {
   height: 100vh; }
@@ -166,14 +134,35 @@ body {
     #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption {
       text-align: left;
       left: 12%;
-      bottom: 160px;
+      bottom: 220px;
       width: 65%; }
+      @media only screen and (max-width: 415px) {
+        #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption {
+          bottom: 140px; } }
+      @media only screen and (max-width: 321px) {
+        #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption {
+          bottom: 110px; } }
       #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h1 {
         font-size: 2.5rem;
         margin-bottom: 20px; }
+        @media only screen and (max-width: 830px) {
+          #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h1 {
+            font-size: 2.2rem; } }
+        @media only screen and (max-width: 530px) {
+          #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h1 {
+            font-size: 1.9rem; } }
+        @media only screen and (max-width: 321px) {
+          #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h1 {
+            font-size: 1.6rem; } }
       #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h2 {
         font-size: 1.2rem;
         line-height: 2rem; }
+        @media only screen and (max-width: 830px) {
+          #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h2 {
+            font-size: 1.1rem; } }
+        @media only screen and (max-width: 530px) {
+          #carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption h2 {
+            display: none; } }
 
 #carouselExampleIndicators .carousel-indicators-slider-wrapper {
   position: absolute;
@@ -254,6 +243,9 @@ body {
   top: 80%;
   text-align: left;
   z-index: 1; }
+  @media only screen and (max-width: 415px) {
+    .carousel-indicators {
+      top: 82%; } }
   .carousel-indicators li {
     background: none;
     width: 16.6%;
@@ -264,7 +256,20 @@ body {
     margin: 0;
     padding-top: 3px;
     cursor: pointer;
-    border: none; }
+    border: none;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear; }
+    @media only screen and (max-width: 830px) {
+      .carousel-indicators li {
+        opacity: 0;
+        width: 100%;
+        position: absolute;
+        left: 0; }
+        .carousel-indicators li.active {
+          opacity: 1; } }
   .carousel-indicators .active {
     background: none; }
 
@@ -405,6 +410,8 @@ body {
           top: 60px; }
           .mega-nav-container #mega-nav-wrap ul li .anchor-mask .mega-nav-a:hover {
             color: #FFFF98; }
+          .mega-nav-container #mega-nav-wrap ul li .anchor-mask .mega-nav-a.active {
+            color: #FFFF98; }
         .mega-nav-container #mega-nav-wrap ul li .anchor-mask .a-disabled:hover {
           color: #fff; }
       .mega-nav-container #mega-nav-wrap ul li a {
@@ -424,12 +431,46 @@ body {
   width: 100%;
   padding: 1.5rem 3rem 1.5rem 1.5rem;
   z-index: 3; }
+  @media only screen and (max-width: 321px) {
+    .navbar {
+      padding: 1rem 1rem 1rem 1rem; } }
+  .navbar .navbar-toggler {
+    position: absolute;
+    top: 1rem;
+    right: 1rem; }
+  .navbar .show {
+    left: 0% !important; }
+  @media only screen and (max-width: 991px) {
+    .navbar .navbar-collapse {
+      background-color: #5F5F5F;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      padding: 7.5rem 0 0 2rem;
+      left: 100%;
+      opacity: 1;
+      display: block;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease; } }
   .navbar .navbar-brand {
     background-image: url("../img/logo@2x.png");
     background-position: 0 0;
     background-size: cover;
     width: 180px;
     height: 70px; }
+    @media only screen and (max-width: 991px) {
+      .navbar .navbar-brand {
+        position: relative;
+        z-index: 1; } }
+    @media only screen and (max-width: 321px) {
+      .navbar .navbar-brand {
+        width: 134px;
+        height: 53px; } }
   .navbar .navbar-toggler {
     border: none;
     background: none; }
@@ -439,6 +480,12 @@ body {
     color: #fff; }
   .navbar .navbar-collapse .form-inline {
     display: none; }
+  @media only screen and (max-width: 415px) {
+    .navbar .navbar-collapse .navbar-nav {
+      padding: 0 0 0 0.5rem; } }
+  @media only screen and (max-width: 415px) {
+    .navbar .navbar-collapse .navbar-nav .nav-item {
+      padding: 2px; } }
   .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
     color: #fff; }
     .navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover {

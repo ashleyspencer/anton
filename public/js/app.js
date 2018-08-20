@@ -10,10 +10,9 @@ $('.carousel').carousel({
 });
   
 $('.carousel').on('slid.bs.carousel', function (data) {
-    var activeSlide = data.to;
-    console.log(activeSlide);
+    var activeSlideIndex = data.to;
     var carouselSlider = document.getElementsByClassName('carousel-indicators-slider')[0];
-    carouselSlider.style.left = (activeSlide * 16.6).toString() + '%';
+    carouselSlider.style.left = (activeSlideIndex * 16.6).toString() + '%';
 });
 
 $('[data-toggle="slide-collapse"]').on('click', function() {
@@ -52,6 +51,20 @@ $("#projects-link").bind("click",showProjects);
 $("#services-link").bind("click",hideProjects);
 
 function showProjects(e) {
+    var projectAnchors = $(".project-a");
+    var locationAnchors = $(".location-a");
+    var yearAnchors = $(".year-a");
+
+    for(var i = 0; i < locationAnchors.length; i++) {
+        var locationAnchor = locationAnchors[i];
+        $(locationAnchor).click(filterSelected);
+    }
+
+    for(var i = 0; i < yearAnchors.length; i++) {
+        var yearAnchor = yearAnchors[i];
+        $(yearAnchor).click(filterSelected);
+    }
+
     $(".mega-nav-container").css("pointer-events","all");
     var megaNavContainer = document.getElementsByClassName('mega-nav-container')[0];
     megaNavContainer.className = "mega-nav-container animIn";
@@ -63,6 +76,31 @@ function showProjects(e) {
             anchorMasks[i].className = "anchor-mask anchor-in";
         }
     }, 500);
+}
+
+function filterSelected(e) {
+
+    if( $(this).hasClass("location-a") ) {
+        var projectAnchors = $(".project-a");
+        var targetLocation = $(this).attr("data-location");
+        var locationAnchors = $(".location-a");
+
+        for(var i = 0; i < projectAnchors.length; i++) {
+            $(locationAnchors[i]).removeClass("active");
+            var projectAnchorLocation = $(projectAnchors[i]).attr("data-location");
+            $(projectAnchors[i]).removeClass("active");
+            
+
+            if( projectAnchorLocation == targetLocation) {
+                $(projectAnchors[i]).addClass("active");
+            }
+        }
+
+        $(this).addClass("active");
+    } else {
+
+    }
+
 }
 
 function hideProjects(e) {
@@ -77,4 +115,4 @@ function hideProjects(e) {
     for(var i = 0; i < anchorMasks.length; i++) {
         anchorMasks[i].className = "anchor-mask anchor-in anchor-out";
     }
-} 
+}   
